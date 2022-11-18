@@ -1,5 +1,8 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
+import 'package:morsoom/api/call_api.dart';
+import 'package:morsoom/model/weather_data.dart';
+import 'package:morsoom/model/weather_model/main.dart';
 
 class GlobalController extends GetxController {
   final RxBool _isLoading = true.obs;
@@ -9,6 +12,9 @@ class GlobalController extends GetxController {
   RxBool checkLoading() => _isLoading;
   RxDouble getLattitude() => _lattitude;
   RxDouble getLongitude() => _longitude;
+
+  final weatherData = Main().obs;
+
 
   @override
   void onInit() {
@@ -55,7 +61,10 @@ class GlobalController extends GetxController {
         .then((value) {
       _lattitude.value = value.latitude;
       _longitude.value = value.longitude;
-      _isLoading.value = false;
+
+      // calling api
+
+
     });
   }
 }
