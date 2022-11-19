@@ -143,8 +143,8 @@ class _HomeBodyState extends State<HomeBody> {
   void initState() {
     super.initState();
     loadData();
-
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -174,7 +174,7 @@ class _HomeBodyState extends State<HomeBody> {
                   fontSize: 20
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 30,),
             Center(
               //alignment: Alignment.center,
               //color: Colors.green,
