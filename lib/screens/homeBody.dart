@@ -161,7 +161,7 @@ class _HomeBodyState extends State<HomeBody> {
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.normal),
             ),
-            Text(tempData.toString() + degree,
+            Text(tempData.toString() + degree + "C",
                 style: const TextStyle(
                   fontWeight: FontWeight.w900,
                   fontStyle: FontStyle.normal,
@@ -170,7 +170,6 @@ class _HomeBodyState extends State<HomeBody> {
             Text(
               description,
               style: const TextStyle(
-                  fontFamily: 'monospace',
                   fontSize: 20
               ),
             ),
@@ -184,7 +183,10 @@ class _HomeBodyState extends State<HomeBody> {
                 width: 200,
                 child:  TextField(
                   controller: textEditingController,
-                  textAlign: TextAlign.center
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 20
+                  ),
 
                 ),
               ),

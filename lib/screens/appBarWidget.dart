@@ -11,7 +11,7 @@ class _AppBatWidgetState extends State<AppBatWidget> {
   @override
   Widget build(BuildContext context) {
     return  Container(
-      alignment: Alignment.center,
+      alignment: Alignment.topLeft,
       child:  const Text(
         "Weather",
         style: TextStyle(
