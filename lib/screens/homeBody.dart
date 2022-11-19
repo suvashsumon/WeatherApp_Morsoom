@@ -18,6 +18,8 @@ class _HomeBodyState extends State<HomeBody> {
   var description = "Welcome";
   var longi,lati;
   TextEditingController textEditingController = TextEditingController();
+
+
   void getWeather() async {
     if (kDebugMode) {
       print("Praised");
@@ -51,6 +53,8 @@ class _HomeBodyState extends State<HomeBody> {
 
 
   }
+
+
   void loadData() async{
     var serviceStatus = await Geolocator.isLocationServiceEnabled();
     if (kDebugMode) {

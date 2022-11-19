@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:morsoom/controller/global_controller.dart';
 import 'package:morsoom/screens/appBarWidget.dart';
-import 'package:morsoom/widgets/current_data.dart';
-import 'package:morsoom/widgets/header_widgets.dart';
 import 'package:morsoom/screens/homeBody.dart';
 
 class HomeScreen extends StatefulWidget {

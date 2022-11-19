@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
 
-import 'package:morsoom/model/weather_data.dart';
 class WeatherInformationMachine{
   Future<Map<String, dynamic>> getDataWithCity(String cityName) async{
     final queryParameter = {
@@ -17,6 +16,8 @@ class WeatherInformationMachine{
     }
     return data;
   }
+
+
   Future<Map<String, dynamic>> getDataWithLongLat(String lon, String lat) async{
     if (kDebugMode) {
       print(lon + lat);
