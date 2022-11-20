@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:morsoom/api/call_api.dart';
+import 'package:morsoom/screens/weather_item.dart';
 class HomeBody extends StatefulWidget {
   const HomeBody({Key? key}) : super(key: key);
 
@@ -208,6 +209,19 @@ class _HomeBodyState extends State<HomeBody> {
                 "Get Current Location Temperature"
             )
             ),
+            SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 200.0,
+                  child: ListView.builder(
+                      itemCount: 10,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) => WeatherItem()
+                  ),
+                ),
+              ),
+            )
           ],
         )
     );
