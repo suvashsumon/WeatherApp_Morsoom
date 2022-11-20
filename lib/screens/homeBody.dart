@@ -16,6 +16,7 @@ class _HomeBodyState extends State<HomeBody> {
   var location = "Current Location";
   var search = "Search";
   var description = "Welcome";
+  var today_image = "//cdn.weatherapi.com/weather/64x64/day/113.png";
   var longi,lati;
   TextEditingController textEditingController = TextEditingController();
 
@@ -36,6 +37,7 @@ class _HomeBodyState extends State<HomeBody> {
         location = response["location"]["name"]+", "+response["location"]["country"];
         tempData = tempDegree.toStringAsPrecision(2);
         description = response['current']['condition']['text'];
+        today_image = response['current']['condition']['icon'];
 
       });
    // }
@@ -104,6 +106,7 @@ class _HomeBodyState extends State<HomeBody> {
         tempData = tempDegree.toStringAsPrecision(2);
         location = response["location"]["name"] + ", " + response["location"]["country"];
         description = response['current']['condition']['text'];
+        today_image = response['current']['condition']['icon'];
       });
     //}
     /*else {
@@ -169,6 +172,7 @@ class _HomeBodyState extends State<HomeBody> {
                   fontStyle: FontStyle.normal,
                   fontSize: 40,
                 )),
+            Image.network("http:"+today_image),
             Text(
               description,
               style: const TextStyle(
@@ -181,7 +185,7 @@ class _HomeBodyState extends State<HomeBody> {
               //color: Colors.green,
               child:  Container(
                 alignment: Alignment.center,
-                color: Colors.white,
+                //color: Colors.white,
                 width: 200,
                 child:  TextField(
                   controller: textEditingController,
@@ -203,10 +207,9 @@ class _HomeBodyState extends State<HomeBody> {
             ElevatedButton(style:accentFlatButtonStyle,onPressed: loadData, child: const Text(
                 "Get Current Location Temperature"
             )
-            )
-
-
+            ),
           ],
-        ));
+        )
+    );
   }
 }
