@@ -30,16 +30,16 @@ class _HomeBodyState extends State<HomeBody> {
 
     var machine = WeatherInformationMachine();
     Map<String,dynamic> response = await machine.getDataWithCity(textEditingController.text);
-    if(response["cod"] == 200){
-      double tempDegree = response['main']['temp'] - 273;
+    //if(response["cod"] == 200){
+      double tempDegree = response['current']['temp_c'];
       setState(() {
-        location = response["name"]+", "+response["sys"]["country"];
+        location = response["location"]["name"]+", "+response["location"]["country"];
         tempData = tempDegree.toStringAsPrecision(2);
-        description = response['weather'][0]['description'];
+        description = response['current']['condition']['text'];
 
       });
-    }
-    else {
+   // }
+    /*else {
       Fluttertoast.showToast(
       msg: response["message"],
       toastLength: Toast.LENGTH_SHORT,
@@ -49,7 +49,7 @@ class _HomeBodyState extends State<HomeBody> {
       textColor: Colors.white,
       fontSize: 16.0
       );
-    }
+    }*/
 
 
   }
@@ -91,20 +91,22 @@ class _HomeBodyState extends State<HomeBody> {
     );
     longi = position.longitude.toStringAsFixed(2);
     lati = position.latitude.toStringAsFixed(2);
+    print("Lon : " + longi);
+    print("Lat : " + lati);
 
     var machine = WeatherInformationMachine();
     var response = await machine.getDataWithLongLat(longi, lati);
 
-    if(response["cod"] == 200){
-      double tempDegree  = response['main']['temp'] - 273;
+    //if(response["cod"] == 200){
+      double tempDegree = response['current']['temp_c'];
 
       setState(() {
         tempData = tempDegree.toStringAsPrecision(2);
-        location = response["name"];
-        description = response['weather'][0]['description'];
+        location = response["location"]["name"] + ", " + response["location"]["country"];
+        description = response['current']['condition']['text'];
       });
-    }
-    else {
+    //}
+    /*else {
       Fluttertoast.showToast(
           msg: response["message"],
           toastLength: Toast.LENGTH_SHORT,
@@ -114,7 +116,7 @@ class _HomeBodyState extends State<HomeBody> {
           textColor: Colors.white,
           fontSize: 16.0
       );
-    }
+    }*/
 
 
   }

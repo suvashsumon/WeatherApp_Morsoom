@@ -6,9 +6,9 @@ class WeatherInformationMachine{
   Future<Map<String, dynamic>> getDataWithCity(String cityName) async{
     final queryParameter = {
       "q" : cityName,
-      "appid" : "d1725cf8fa5df91fe1ce207be477d8ac"
+      "key" : "006abc5093bb49d3af733331222011"
     };
-    final uri = Uri.https("api.openweathermap.org", "/data/2.5/weather",queryParameter);
+    final uri = Uri.https("api.weatherapi.com", "/v1/forecast.json",queryParameter);
     final response = await get(uri);
     final data = jsonDecode(response.body);
     if (kDebugMode) {
@@ -23,12 +23,11 @@ class WeatherInformationMachine{
       print(lon + lat);
     }
     final queryParameter = {
-      "lon" : lon,
-      "lat" : lat,
-      "appid" : "d1725cf8fa5df91fe1ce207be477d8ac"
+      "q" : lat+","+lon,
+      "key" : "006abc5093bb49d3af733331222011"
       //"units" : "imperial"
     };
-    final uri = Uri.https("api.openweathermap.org", "/data/2.5/weather",queryParameter);
+    final uri = Uri.https("api.weatherapi.com", "/v1/forecast.json",queryParameter);
     final response = await get(uri);
     final data =  jsonDecode(response.body) as Map<String,dynamic>;
     if (kDebugMode) {
